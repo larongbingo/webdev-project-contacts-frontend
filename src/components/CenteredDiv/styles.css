@@ -1,10 +1,5 @@
 /* css-tricks.com/centering-css-complete-guide */
 
-#centeredDiv-parentDiv {
-  position: relative;
-  height: 100vh;
-}
-
 #centeredDiv-childDiv {
   position: absolute;
   top: 50%;

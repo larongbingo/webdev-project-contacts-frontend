@@ -7,7 +7,7 @@ import { AwesomeBackground } from "../../components/AwesomeBackground";
 export const LogIn = () => (
   <div style={{position: "relative", height: "100vh"}}>
     <CenteredDiv divHeight={50} divWidth={25}>
-      <Form>
+      <Form style={{backgroundColor: "#999999", padding: "30px", borderRadius: "20px"}}>
         <Form.Group>
           <Form.Label>Username</Form.Label>
           <Form.Control type="text" name="username" id="username" />

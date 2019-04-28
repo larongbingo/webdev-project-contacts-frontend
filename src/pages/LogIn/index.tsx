@@ -1,5 +1,7 @@
-import React, { Component, Context, KeyboardEvent } from "react";
+import React, { Component, Context, FormEvent, KeyboardEvent } from "react";
 import { Form, Button } from "react-bootstrap";
+import { ReplaceProps, BsPrefixProps } from "react-bootstrap/helpers";
+import { FormControlProps } from "react-bootstrap";
 
 import { logIn } from "../../libs/auth";
 import { CenteredDiv } from "../../components/CenteredDiv";
@@ -14,12 +16,12 @@ export class LogIn extends Component<{}, LogInStates> {
     };
   }
 
-  private username_OnKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
-    this.setState({username: this.state.username + e.key});
+  private username_OnChange = (e: FormEvent<ReplaceProps<"input", BsPrefixProps<"input"> & FormControlProps>>) => {
+    this.setState({username: e.currentTarget.value!});
   }
 
-  private password_OnKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
-    this.setState({password: this.state.password + e.key});
+  private password_OnChange = (e: FormEvent<ReplaceProps<"input", BsPrefixProps<"input"> & FormControlProps>>) => {
+    this.setState({password:  e.currentTarget.value!});
   };
 
   private login_OnClick = () => {
@@ -38,14 +40,14 @@ export class LogIn extends Component<{}, LogInStates> {
     return (
       <div style={{position: "relative", height: "100vh"}}>
         <CenteredDiv>
-          <Form style={{backgroundColor: "#999999", padding: "30px", borderRadius: "20px"}}>
+          <Form onKeyPress={(e: KeyboardEvent<HTMLFormElement>) => e.key === "Enter" ? this.login_OnClick : null} style={{backgroundColor: "#999999", padding: "30px", borderRadius: "20px"}}>
             <Form.Group>
               <Form.Label>Username</Form.Label>
-              <Form.Control onKeyPress={this.username_OnKeyPress} type="text" name="username" id="username" />
+              <Form.Control onChange={this.username_OnChange} type="text" name="username" id="username" />
             </Form.Group>
             <Form.Group>
               <Form.Label>Password</Form.Label>
-              <Form.Control onKeyPress={this.password_OnKeyPress} type="password" name="password" id="password" />
+              <Form.Control onChange={this.password_OnChange} type="password" name="password" id="password" />
             </Form.Group>
             <Button onClick={this.login_OnClick} variant="primary">Log In</Button>
           </Form>

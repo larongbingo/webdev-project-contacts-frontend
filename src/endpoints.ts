@@ -17,5 +17,12 @@ export const AUTH_ROUTES = {
 };
 
 export const MESSAGE_ROUTES = {
-
+  getAllMessage: {
+    route: `${ROOT_ENDPOINT}/message`,
+    method: "GET",
+  },
+  getMessageDetails: {
+    route: (messageId: string) => `${ROOT_ENDPOINT}/message/${messageId}`,
+    method: "GET",
+  },
 };

@@ -25,5 +25,5 @@ export async function getMessages() {
     }
   );
 
-  return res.json();
+  return await res.json();
 }

@@ -3,12 +3,13 @@ import { Route, RouteProps, Redirect } from "react-router-dom";
 
 import { isAuthenticated } from "../../libs/auth";
 
-export const PrivateRoute: FunctionComponent<RouteProps> = ({component, ...rest}) => (
+export const PrivateRoute: FunctionComponent<RouteProps> = ({component: Component, ...rest}) => (
   <Route
     {...rest}
     render={
       props =>
         isAuthenticated() ?
+        // @ts-ignore
         <Component {...props} /> :
         <Redirect
           to={{

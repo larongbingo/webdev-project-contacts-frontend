@@ -4,6 +4,7 @@ import { Spinner, Container, Media } from "react-bootstrap";
 
 import { CenteredLoading } from "../../components/CenteredLoading";
 import { MessageListItemProps } from "../../components/MessageListItem";
+import { getMessageDetails } from "../../libs/messages";
 
 export class MessageDetails extends Component<RouteComponentProps<{messageId: string}>, MessageDetailsStates> {
   constructor(props: RouteComponentProps<{messageId: string}>, context: Context<{}>) {
@@ -16,7 +17,8 @@ export class MessageDetails extends Component<RouteComponentProps<{messageId: st
   }
   
   public componentDidMount() {
-    
+    getMessageDetails(this.props.match.params.messageId)
+    .then((message => this.setState({message, isLoading: false})));
   }
 
   public render() {

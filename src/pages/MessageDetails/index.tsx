@@ -32,9 +32,11 @@ export class MessageDetails extends Component<RouteComponentProps<{messageId: st
           {
             this.state.message ?
             <Media>
-              <h2>{this.state.message.title}</h2>
-              <h3>{this.state.message.email}</h3>
-              <h4>{this.state.message.createdAt}</h4>
+              <div>
+                <h2>{this.state.message.title}</h2>
+                <h3>{this.state.message.email}</h3>
+                <h4>{this.state.message.createdAt}</h4>
+              </div>
               <Media.Body>
                 <p>{this.state.message.message}</p>
               </Media.Body>

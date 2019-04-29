@@ -2,6 +2,7 @@ import React, { Component, Context } from "react";
 import { Spinner, Container, Table } from "react-bootstrap";
 
 import { getMessages } from "../../libs/messages";
+import { CenteredDiv } from "../../components/CenteredDiv";
 import { MessageListItemProps, MessageListItem } from "../../components/MessageListItem";
 
 export class Messages extends Component<{}, MessagesStates> {
@@ -21,7 +22,7 @@ export class Messages extends Component<{}, MessagesStates> {
   public render() {
     if(this.state.isLoading) {
       return (
-        <Spinner animation="border" />
+        <CenteredDiv/>
       );
     }
 

@@ -1,6 +1,7 @@
 import React, { Component, Context } from "react";
 import { Spinner, Container, Media } from "react-bootstrap";
 
+import { CenteredLoading } from "../../components/CenteredLoading";
 import { MessageListItemProps } from "../../components/MessageListItem";
 
 export class MessageDetails extends Component<{}, MessageDetailsStates> {
@@ -20,7 +21,7 @@ export class MessageDetails extends Component<{}, MessageDetailsStates> {
   public render() {
     if(this.state.isLoading) {
       return (
-        <Spinner animation="border"/>
+        <CenteredLoading/>
       );
     }
 

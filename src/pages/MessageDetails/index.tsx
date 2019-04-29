@@ -1,11 +1,12 @@
 import React, { Component, Context } from "react";
+import { RouteComponentProps } from "react-router-dom";
 import { Spinner, Container, Media } from "react-bootstrap";
 
 import { CenteredLoading } from "../../components/CenteredLoading";
 import { MessageListItemProps } from "../../components/MessageListItem";
 
-export class MessageDetails extends Component<{}, MessageDetailsStates> {
-  constructor(props: {}, context: Context<{}>) {
+export class MessageDetails extends Component<RouteComponentProps<{messageId: string}>, MessageDetailsStates> {
+  constructor(props: RouteComponentProps<{messageId: string}>, context: Context<{}>) {
     super(props, context);
 
     this.state = {

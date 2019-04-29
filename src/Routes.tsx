@@ -9,7 +9,7 @@ import { PrivateRoute } from "./components/PrivateRoute";
 export const Routes = () => (
   <Switch>
     <Route exact path="/" component={LogIn} />
-    <PrivateRoute path="/messages" component={Messages} />
     <PrivateRoute path="/messages/:messageId" component={MessageDetails} />
+    <PrivateRoute exact path="/messages" component={Messages} />
   </Switch>
 );

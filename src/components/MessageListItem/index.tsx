@@ -1,13 +1,11 @@
 import React, { FunctionComponent } from "react";
 
 export const MessageListItem: FunctionComponent<MessageListItemProps> = ({id, title, message, email, createdAt, isRead}) => (
-  <tr style={{backgroundColor: isRead ? "#999999" : "#FFFFFF"}}>
-    <a href={`/messages/${id}`}>
-      <td>{createdAt}</td>
-      <td>{email}</td>
-      <td>{title}</td>
-      <td>{message}</td>
-    </a>
+  <tr onClick={() => window.location.href = `/messages/${id}`} style={{backgroundColor: isRead ? "#999999" : "#FFFFFF", cursor: "pointer"}}>
+    <td>{createdAt}</td>
+    <td>{email}</td>
+    <td>{title}</td>
+    <td>{message}</td>
   </tr>
 );
 
